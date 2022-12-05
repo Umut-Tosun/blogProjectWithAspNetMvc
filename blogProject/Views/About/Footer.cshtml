@@ -1,0 +1,55 @@
+﻿@model IEnumerable<EntityLayer.Concrete.About>
+<div class="site-footer">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-4">
+                @foreach (var item in Model)
+                {
+
+
+                <h3 class="footer-heading mb-4">Hakkımızda</h3>
+                <p>@item.Content1</p>
+                }
+            </div>
+            <div class="col-md-3 ml-auto">
+                <!-- <h3 class="footer-heading mb-4">Navigation</h3> -->
+                <ul class="list-unstyled float-left mr-5">
+                    <li><a href="/Blog/Index/">Ana Sayfa</a></li>
+                    <li><a href="/About/Index/">Hakkımızda</a></li>
+                    <li><a href="/Contact/Index/">İletişim</a></li>
+                    <li><a href="/Login/AuthorLogin">Yazar Giriş</a></li>
+                </ul>
+                <ul class="list-unstyled float-left">
+                    <li><a href="/Blog/BlogByCategory/2">Programlama Temelleri</a></li>
+                    <li><a href="/Blog/BlogByCategory/4">Donanım</a></li>
+                    <li><a href="/Blog/BlogByCategory/7">Nesne Tabanlı</a></li>
+                    <li><a href="/Blog/BlogByCategory/3">Web Teknojileri</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+
+
+                <div>
+                    <h3 class="footer-heading mb-4">Sosyal Medyada Biz!</h3>
+                    <p>
+                        <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
+                        <a href="#"><span class="icon-twitter p-2"></span></a>
+                        <a href="#"><span class="icon-instagram p-2"></span></a>
+                        <a href="#"><span class="icon-rss p-2"></span></a>
+                        <a href="#"><span class="icon-envelope p-2"></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>
+                 
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> Tüm hakları saklıdır. | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                  
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

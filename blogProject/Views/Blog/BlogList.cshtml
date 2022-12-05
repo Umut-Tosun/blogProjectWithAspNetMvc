@@ -1,0 +1,61 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IEnumerable<EntityLayer.Concrete.Blog>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12">
+                <center>
+                    <h2>Post Listesi</h2>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+<div class="col-lg-4 mb-4">
+    <div class="entry2">
+        <a href="/Blog/BlogDetails/@item.BlogID"><img src="@item.ImageUrl" style="height:200px" alt="Image" class="img-fluid rounded"></a>
+        <div class="excerpt">
+            @if (item.CategoryID == 2)
+            {
+        <span class="post-category text-white bg-warning">@item.Category.Name</span>}
+            @if (item.CategoryID == 3)
+            {
+        <span class="post-category text-white badge-success">@item.Category.Name</span>}
+            @if (item.CategoryID == 5)
+            {
+        <span class="post-category text-white badge-primary">@item.Category.Name</span>}
+            @if (item.CategoryID == 4)
+            {
+        <span class="post-category text-white badge-dark">@item.Category.Name</span>}
+            @if (item.CategoryID == 6)
+            {
+        <span class="post-category text-white bg-info">@item.Category.Name</span>}
+            @if (item.CategoryID == 7)
+            {
+        <span class="post-category text-white bg-danger">@item.Category.Name</span>}
+            @if (item.CategoryID == 8)
+            {
+        <span class="post-category text-white bg-success">@item.Category.Name</span>}
+
+
+            <h2><a href="/Blog/BlogDetails/@item.BlogID">@item.Title</a></h2>
+            <div class="post-meta align-items-center text-left clearfix">
+                <figure class="author-figure mb-0 mr-3 float-left"><img src="@item.Author.ImageUrl" style="width:50px" alt="Image" class="img-fluid"></figure>
+                <span class="d-inline-block mt-1">Yazar :<a href="#">@item.Author.FirstName @item.Author.LastName</a></span>
+                <span>&nbsp;-&nbsp; @(((DateTime)item.DateTime).ToString("dd-MMM-yyyy"))</span>
+
+            </div>
+            
+            <p>@item.Content.Substring(0, item.Content.Substring(0, 200).LastIndexOf(" "))...</p>
+
+            <p><a href="/Blog/BlogDetails/@item.BlogID">Daha fazlası</a></p>
+        </div>
+    </div>
+</div>      }
+        </div>
+    </div>
+</div>
+@Html.PagedListPager((IPagedList)Model,page=> Url.Action("Index", new { page }))

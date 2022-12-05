@@ -1,0 +1,96 @@
+﻿@model EntityLayer.Concrete.Author
+@{
+    ViewBag.Title = "AddAuthor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card card-cyan">
+    <div class="card-header">
+        <h3 class="card-title">Yeni Yazar Ekleme Paneli</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form class="form-group" role="form" method="post">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>İsim</label>
+                        <input type="text" name="FirstName" class="form-control" placeholder="Zorunlu Alan Lütfen Giriniz...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Soyisim</label>
+                        <input type="text" name="LastName" class="form-control" placeholder="Zorunlu Alan Lütfen Giriniz...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input type="text" class="form-control" name="Title" placeholder="Zorunlu Alan Lütfen Giriniz...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Mail</label>
+                        <input type="text" class="form-control" name="Mail" placeholder="Zorunlu Alan Lütfen Giriniz...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Telefon Numarası</label>
+                        <input type="tel" class="form-control" name="PhoneNumber" placeholder="Zorunlu Alan Lütfen Giriniz...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password" class="form-control" name="Password" placeholder="Zorunlu Alan Lütfen Giriniz...">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>Hakkında yazısı</label>
+                        <textarea class="form-control" name="About" rows="6" placeholder="Zorunlu Alan Lütfen Giriniz..."></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Görsel(Varsayılan)</label>
+                        <br />
+                        <img src="https://i.hizliresim.com/itfiq05.png" style="height:150px" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">Yeni Görsel Ekle(Opsiyonel)</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Dosya seç</label>
+                    </div>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="">Kaydet</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="reset" class="btn btn-danger" value="İptal Et" />
+                </div>
+                <div class="col-sm-6">
+                    <input type="submit" class="btn btn-success" value="Yeni Yazar Ekle" style="margin-left:80%" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

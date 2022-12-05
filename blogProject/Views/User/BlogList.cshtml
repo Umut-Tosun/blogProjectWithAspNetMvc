@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+    ViewBag.Title = "BlogList";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    int id = 0;
+}
+
+<div class="col-sm-12">
+    <div class="white-box">
+        <h3 class="box-title">Bloglarım</h3>
+        <p class="text-muted">Toplam Blog Sayısı : <code>@Model.Count()</code></p>
+        <div class="table-responsive">
+            <table class="table text-nowrap">
+                <thead>
+                    <tr>
+                        <th class="border-top-0">#</th>
+                        <th class="border-top-0">Blog Başlığı</th>
+                        <th class="border-top-0">Kategori</th>
+                        <th class="border-top-0">Blog Paylaşılma Tarihi</th>
+                        <th class="border-top-0">Blog Görsel</th>
+                        <th>Sil</th>
+                        <th class="border-top-0">Detaylar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        { id = id + 1; }
+                    <tr>
+                        <td>@id</td>
+                        <td>@item.Title</td>
+                        <td><span class="badge bg-danger">@item.Category.Name</span></td>
+                        <td>@(((DateTime)item.DateTime).ToString("dd-MMM-yyyy"))</td>
+                        <td><img class="img-thumbnail" style="height:50px" src="@item.ImageUrl" /></td>
+                        <td>
+                            <i class="fas fa-trash" style="color:#dc3545">
+
+                                @Html.ActionLink("Sil", "DeleteBlog", new { id = item.BlogID }, new { @class = "btn btn-danger btn-sm ", onclick = "return confirm('Gerçekten Silmek İstiyor musunuz ?')" })
+                            </i>
+
+
+                        </td>
+                        <td><a href="/User/BlogDetails/@item.BlogID" class="btn btn-info">Detaylar</a></td>
+                    </tr>
+                    }
+                </tbody>
+               
+            </table>
+            <a href="/User/AddBlog/" class="btn btn-success">Yeni Blog Ekle</a>
+        </div>
+    </div>
+</div>
+

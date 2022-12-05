@@ -1,0 +1,205 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Category>
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int id = 0;
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="row">
+        <div class="info-box mb-3 bg-warning" style="margin-left:1%">
+            <span class="info-box-icon"><i class="fas fa-list"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Kategori Sayısı</span>
+                <span class="info-box-number">@Model.Count()</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+        <div class="info-box mb-3 bg-success" style="margin-left:1%">
+            <span class="info-box-icon"><i class="fas fa-list"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Aktif Kategori Sayısı</span>
+                <span class="info-box-number">@Model.Where(x => x.Status == true).Count()</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+        <div class="info-box mb-3 bg-danger" style="margin-left:1%">
+            <span class="info-box-icon"><i class="fas fa-list"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Pasif Kategori Sayısı</span>
+                <span class="info-box-number">@Model.Where(x => x.Status == false).Count()</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+        <div class="info-box mb-3 bg-info" style="margin-left:1%">
+            <span class="info-box-icon"><i class="fas fa-book"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">En Zengin Kategori</span>
+                <span class="info-box-number">Programlama Temelleri</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <div class="info-box mb-3 bg-pink" style="margin-left:1%">
+            <span class="info-box-icon"><i class="fas fa-book"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Son  Kategori</span>
+                <span class="info-box-number">Web Programlama</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="card-header">
+
+                    <h3 class="card-title">Kategori Listesi</h3>
+
+                    <div class="card-tools">
+
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+
+                            <i class="fas fa-minus"></i>
+
+                        </button>
+
+
+
+                    </div>
+                     <a style="margin-left:1%" class="btn btn-success btn-sm" href="/Category/AddCategory/">Yeni Kategori Ekle</a>
+
+                </div>
+
+                <div class="card-body p-0">
+
+                    <table class="table table-avatar">
+                        <tr>
+                            <th>#</th>
+
+                            <th>Kategori Adı</th>
+
+                            <th>Aktif Yazarlar</th>
+
+                            <th>Durum</th>
+
+                            <th>Sil</th>
+
+                            <th>Güncelle</th>
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            id++;
+
+                            <tr>
+
+                                <th>@id</th>
+
+                                <td>@item.Name</td>
+
+                                <td>
+
+                                    <ul class="list-inline">
+
+                                        <li class="list-inline-item">
+
+                                            <img alt="Avatar" style="height:30px" class="table-avatar" src="/Themes/AdminLTE-3.0.4/dist/img/avatar.png">
+
+                                        </li>
+
+                                        <li class="list-inline-item">
+
+                                            <img alt="Avatar" style="height: 30px" class="table-avatar" src="/Themes/AdminLTE-3.0.4/dist/img/avatar2.png">
+
+                                        </li>
+
+                                        <li class="list-inline-item">
+
+                                            <img alt="Avatar" style="height: 30px" class="table-avatar" src="/Themes/AdminLTE-3.0.4/dist/img/avatar3.png">
+
+                                        </li>
+
+                                    </ul>
+
+                                </td>
+
+                                @if (item.Status == true)
+                                {
+                                    <td class="project-state">
+
+                                        <span class="badge badge-success">Aktif Kategori</span>
+
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="project-state">
+
+                                        <span class="badge badge-danger">Pasif Kategori</span>
+
+                                    </td>
+                                }
+                                @if (item.Status == true)
+                                {
+                                    <td>
+                                        <a class="btn btn-danger btn-sm" href="/Category/ChangeStatusCategory/@item.CategoryID">
+
+                                            <i class="fas fa-trash">
+
+                                            </i>
+
+                                            Pasif Yap
+
+                                        </a>
+
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <a class="btn btn-success btn-sm" href="/Category/ChangeStatusCategory/@item.CategoryID">
+
+                                            <i class="fas fa-save">
+
+                                            </i>
+
+                                            Aktif Yap
+
+                                        </a>
+
+                                    </td>
+                                }
+                                <td>
+                                    <a class="btn btn-info btn-sm" href="/Category/UpdateCategory/@item.CategoryID">
+                                        <i class="fas fa-pencil-alt">
+
+                                        </i>
+                                        Düzenle
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+
+                </div>
+
+                <!-- /.card-body -->
+
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDF7E4F4-306A-44D2-A2E2-F79D0691A76E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\IAuthorDal.cs" />
+    <Compile Include="Abstract\IBlogDal.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\ICommentDal.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ISubscribeMailDal.cs" />
+    <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Repository.cs" />
+    <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
+    <Compile Include="EntityFramework\EfAuthorDal.cs" />
+    <Compile Include="EntityFramework\EfBlogDal.cs" />
+    <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="EntityFramework\EfCommentDal.cs" />
+    <Compile Include="EntityFramework\EfContactDal.cs" />
+    <Compile Include="EntityFramework\EfSubscribeMailDal.cs" />
+    <Compile Include="Migrations\202211131432580_newTableSubscribeMail.cs" />
+    <Compile Include="Migrations\202211131432580_newTableSubscribeMail.designer.cs">
+      <DependentUpon>202211131432580_newTableSubscribeMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211161921562_commentDateAddOnCommentEntity.cs" />
+    <Compile Include="Migrations\202211161921562_commentDateAddOnCommentEntity.designer.cs">
+      <DependentUpon>202211161921562_commentDateAddOnCommentEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211191424395_newColumnsForAuthor.cs" />
+    <Compile Include="Migrations\202211191424395_newColumnsForAuthor.designer.cs">
+      <DependentUpon>202211191424395_newColumnsForAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211271521544_newColumnContactTable.cs" />
+    <Compile Include="Migrations\202211271521544_newColumnContactTable.designer.cs">
+      <DependentUpon>202211271521544_newColumnContactTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211281600501_addNewColumnOnBlog.cs" />
+    <Compile Include="Migrations\202211281600501_addNewColumnOnBlog.designer.cs">
+      <DependentUpon>202211281600501_addNewColumnOnBlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212021947010_newColumnForAdminTable.cs" />
+    <Compile Include="Migrations\202212021947010_newColumnForAdminTable.designer.cs">
+      <DependentUpon>202212021947010_newColumnForAdminTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212031421150_newColumnForAdminTable1.cs" />
+    <Compile Include="Migrations\202212031421150_newColumnForAdminTable1.designer.cs">
+      <DependentUpon>202212031421150_newColumnForAdminTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212031450021_newColumnForComment.cs" />
+    <Compile Include="Migrations\202212031450021_newColumnForComment.designer.cs">
+      <DependentUpon>202212031450021_newColumnForComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202211131432580_newTableSubscribeMail.resx">
+      <DependentUpon>202211131432580_newTableSubscribeMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211161921562_commentDateAddOnCommentEntity.resx">
+      <DependentUpon>202211161921562_commentDateAddOnCommentEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211191424395_newColumnsForAuthor.resx">
+      <DependentUpon>202211191424395_newColumnsForAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211271521544_newColumnContactTable.resx">
+      <DependentUpon>202211271521544_newColumnContactTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211281600501_addNewColumnOnBlog.resx">
+      <DependentUpon>202211281600501_addNewColumnOnBlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212021947010_newColumnForAdminTable.resx">
+      <DependentUpon>202212021947010_newColumnForAdminTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212031421150_newColumnForAdminTable1.resx">
+      <DependentUpon>202212031421150_newColumnForAdminTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212031450021_newColumnForComment.resx">
+      <DependentUpon>202212031450021_newColumnForComment.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{007dbaa7-8825-42f9-bd1f-3b0c27ea0c51}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

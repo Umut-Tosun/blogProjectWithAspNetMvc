@@ -1,0 +1,272 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Admin Panel</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="~/Themes/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- overlayScrollbars -->
+
+    <link rel="stylesheet" href="~/Themes/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/Themes/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.css">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <!-- Brand Logo -->
+
+            <a href="../../index3.html" class="brand-link">
+
+                <img src="~/Themes/AdminLTE-3.0.4//dist/img/AdminLTELogo.png"
+                     alt="AdminLTE Logo"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+
+                <span class="brand-text font-weight-light">Admin Paneli</span>
+
+            </a>
+
+            <!-- Sidebar -->
+
+            <div class="sidebar">
+
+                <!-- Sidebar user (optional) -->
+
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/Themes/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Umut Tosun</a>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar Menu -->
+
+                <nav class="mt-2">
+
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="/Blog/AdminBlogList" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p> Bloglar </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Author/AuthorList" class="nav-link">
+                                <i class="nav-icon fas fa-pencil-alt"></i>
+                                <p> Yazarlar </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Category/CategoryList" class="nav-link">
+                                <i class="nav-icon fas fa-list-ul"></i>
+                                <p> Kategoriler </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-comment"></i>
+                                <p>
+                                    Yorumlar
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/Comment/AdminCommentList/" class="nav-link">
+                                        <i class="far fa-comment nav-icon"></i>
+                                        <p>Onaylanmamış Yorumlar</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/Comment/AdminisReadTrueCommentList/" class="nav-link">
+                                        <i class="far fa-comment nav-icon"></i>
+                                        <p>Paylaşılmış Yorumlar</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        <li class="nav-item">
+                            <a href="/Admin/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p> Adminler </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Chart/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p> İstatistikler </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/About/UpdateAbout/" class="nav-link">
+                                <i class="nav-icon fas fa-address-book"></i>
+                                <p> Hakkımızda </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-mail-bulk"></i>
+                                <p>
+                                    İletişim
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="/Contact/SendBox/" class="nav-link">
+                                        <i class="far fa-comment nav-icon"></i>
+                                        <p>Okunmamış Mesajlar</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="/Contact/SendBox2/" class="nav-link">
+                                        <i class="far fa-comment nav-icon"></i>
+                                        <p>Okunmuş Mesajlar</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+
+
+                        <li class="nav-item">
+                            <a href="/Blog/Index/" class="nav-link">
+                                <i class="nav-icon fas fa-paper-plane"></i>
+                                <p> Siteye Git </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/LogOut/" class="nav-link">
+                                <i class="nav-icon fas fa-backspace"></i>
+                                <p> Çıkış Yap </p>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <!-- /.sidebar-menu -->
+
+            </div>
+
+            <!-- /.sidebar -->
+
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+
+        <div class="content-wrapper">
+
+            <!-- Content Header (Page header) -->
+
+            <section class="content-header">
+
+                <div class="container-fluid">
+
+                  
+                        @RenderBody()
+
+                  
+
+                </div><!-- /.container-fluid -->
+
+            </section>
+
+            <!-- Main content -->
+            <!-- /.content -->
+
+        </div>
+
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+
+        <aside class="control-sidebar control-sidebar-dark">
+
+            <!-- Control sidebar content goes here -->
+
+        </aside>
+
+        <!-- /.control-sidebar -->
+
+    </div>
+
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="~/Themes/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="~/Themes/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="~/Themes/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="~/Themes/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <script src="~/Themes/AdminLTE-3.0.4/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- Page Script -->
+    <script>
+        $(function () {
+            //Add text editor
+            $('#compose-textarea').summernote()
+        })
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+

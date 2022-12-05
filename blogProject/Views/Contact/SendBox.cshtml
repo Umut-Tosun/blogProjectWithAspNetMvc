@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Contact>
+@{
+    ViewBag.Title = "SendBox";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int id = 0;
+}
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline">
+
+                    <div class="card-body p-0">
+
+                     
+                        <div class="table-responsive mailbox-messages">
+
+                            <table class="table table-hover table-striped">
+
+                                <tbody>
+
+
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Kimden</th>
+                                        <th>Konu</th>
+                                        <th>Mesaj</th>
+                                        <th>Tarih</th>
+                                        <th>Durum</th>
+                                        <th>Detaylar</th>
+                                    </tr>
+                                  
+                                    @foreach (var item in Model)
+                                    {
+                                        id++;
+                                <tr>
+                                    <td>@id</td>
+                                    <td class="mailbox-name" style="color:#009c8f">@item.FirstName @item.LastName</td>
+
+                                    <td class="mailbox-subject">
+
+                                        <b>@item.Subject</b>
+
+                                    </td>
+                                    <td>
+                                        @item.Message.Substring(0, 15) ...
+                                    </td>
+
+
+                                    <td class="mailbox-date">@(((DateTime)item.dateTime).ToString("dd-MMM-yyy"))</td>
+
+                                    <th><span class="badge bg-danger">Yeni Mesaj</span></th>
+
+                                    <td>
+                                        <a href="/Contact/MessageDetails/@item.ID" class="btn btn-info btn-sm">Detaylar</a>
+                                    </td>
+
+                                </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- /.card -->
+
+            </div>
+
+            <!-- /.col -->
+
+     
+
+  

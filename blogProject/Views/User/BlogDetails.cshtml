@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewBag.Title = "BlogDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link rel="stylesheet" href="/Themes/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+<form class="form-group" method="post">
+
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h3 class="card-title">Blog Güncelle</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <input hidden name="BlogID" value="@Model.BlogID" />
+            <input hidden name="ImageUrl" value="@Model.ImageUrl" />
+            <input hidden name="DateTime" value="@Model.DateTime" />
+            <input hidden name="AuthorID"  value="@Model.AuthorID" />
+            <div class="form-group">
+                @Html.Label("Başlık")
+                <input class="form-control" name="Title" value="@Model.Title" placeholder="Başlık:">
+            </div>
+            <div class="form-group">
+                @Html.Label("Kategori")
+                @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("İçerik")
+                <textarea id="compose-textarea" name="Content" class="form-control" style="width:1000px;height:500px;">@Model.Content
+                    </textarea>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <div class="float-right">
+                <button type="submit" class="btn btn-success"><i class="fas fa-pencil-alt"></i>Güncelle</button>
+            </div>
+            <a class="btn btn-danger" href="/User/BlogList/"> <i class="fas fa-times"></i> İptal Et</a>
+        </div>
+    </div>
+
+</form>
+
+
+<!-- AdminLTE for demo purposes -->
+
+
+<script src="/Themes/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

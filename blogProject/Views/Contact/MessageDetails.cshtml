@@ -1,0 +1,104 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewBag.Title = "MessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title">Gelen Mesaj Detayları</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form class="form-group" role="form" method="post">
+            <input hidden name="dateTime" value="@Model.dateTime" />
+            <input hidden name="ID" value="@Model.ID" />
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Okunma Durumu</label>
+                        @if (Model.isRead == false)
+                        {
+                            <input readonly type="datetime" class="form-control" value="Okunmadı" />
+                        }
+                        else
+                        {
+                            <input readonly type="datetime" class="form-control" value="Okundu" />
+
+                        }
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Tarih</label>
+                        <input readonly type="datetime" class="form-control" value="@(((DateTime)Model.dateTime).ToString("dd-MMM-yyyy"))" />
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>İsim</label>
+                        <input type="text" value="@Model.FirstName" name="FirstName" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Soyisim</label>
+                        <input type="text" value="@Model.LastName" name="LastName" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Konu</label>
+                        <input type="text" value="@Model.Subject" class="form-control" name="Subject" readonly>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Mail</label>
+                        <input type="text" value="@Model.Mail" class="form-control" name="Mail" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- textarea -->
+                    <div class="form-group">
+                        <label>Mesaj</label>
+                        <textarea class="form-control" value="@Model.Message" name="Message" rows="6" readonly>@Model.Message</textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                
+                @if (Model.isRead == false)
+                {
+                    <div class="col-sm-5">
+                        <a class="btn btn-danger" href="/Contact/SendBox">Geri Dön</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="submit" class="btn btn-success" value="Okundu Olarak İşaretle" style="margin-left:80%" />
+                    </div>
+                }
+                else
+                {
+                    <div class="col-sm-5">
+                        <a class="btn btn-danger" href="/Contact/SendBox2">Geri Dön</a>
+                    </div>
+                   
+                }
+            </div>
+        </form>
+    </div>
+</div>
+

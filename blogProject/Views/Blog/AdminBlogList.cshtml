@@ -1,0 +1,91 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+    ViewBag.Title = "AdminBlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int x = 0;
+    string color = "";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Yorumlar</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        x++;
+        <tr>
+            @{color = "badge badge-dark";}
+            <td>@x</td>
+            <td>@item.Title</td>
+            @if (item.CategoryID == 2)
+            {
+                color = "badge badge-primary";
+            }
+            @if (item.CategoryID == 3)
+            {
+                color = "badge badge-success";
+            }
+            @if (item.CategoryID == 4)
+            {
+                color = "badge badge-danger";
+            }
+            @if (item.CategoryID == 5)
+            {
+                color = "badge badge-info";
+            }
+            @if (item.CategoryID == 6)
+            {
+                color = "badge badge-warning";
+            }
+            @if (item.CategoryID == 7)
+            {
+                color = "badge badge-secondary";
+            }
+            @if (item.CategoryID == 8)
+            {
+                color = "badge badge-dark";
+            }
+            <td><span class="@color">@item.Category.Name</span></td>
+            <td>@(((DateTime)item.DateTime).ToString("dd-MMM-yyyy"))</td>
+            <td>
+                <i class="fas fa-trash" style="color:#dc3545">
+
+                    @Html.ActionLink("Sil", "DeleteBlog", new { id = item.BlogID }, new { @class = "btn btn-danger btn-sm ", onclick = "return confirm('Gerçekten Silmek İstiyor musunuz ?')" })
+                </i>
+
+
+            </td>
+            <td>
+                <a class="btn btn-info btn-sm" href="/Blog/UpdateBlog/@item.BlogID">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Güncelle
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-dark btn-sm" href="/Blog/GetCommentByBlog/@item.BlogID">
+                    <i class="fas fa-comment">
+                    </i>
+                    Yorumlar
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-primary btn-sm" href="/Blog/BlogDetails/@item.BlogID">
+                    <i class="fas fa-folder">
+                    </i>
+                    Detaylar
+                </a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Blog/NewBlog/" class="btn btn-info">Yeni Blog Ekle</a>
+

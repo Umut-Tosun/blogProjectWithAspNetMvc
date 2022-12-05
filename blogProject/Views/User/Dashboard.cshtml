@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    int id = 0;
+}
+<link rel="stylesheet" href="/Themes/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+<div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-user"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Rütben</span>
+                <span class="info-box-number">Çaylak Yazar</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-book"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Toplam Blog Sayın</span>
+                <span class="info-box-number">
+                    12
+                </span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-comment"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Toplam Alınan Yorum</span>
+                <span class="info-box-number">48</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <!-- fix for small devices only -->
+
+
+    <div class="col-12 col-sm-6 col-md-3">
+        <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-chart-pie"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Ortalama Blog Puanın</span>
+                <span class="info-box-number">10 / 9</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <!-- /.col -->
+</div>
+
+<div class="row">
+    @Html.Action("LastBlogs","User")
+</div>
+
+

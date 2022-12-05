@@ -1,0 +1,15 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+
+@foreach (var item in Model)
+{
+<div class="post-content-body">
+    <p id="compose-textarea" name="compose-textarea">
+        @Html.Raw(@item.Content)
+    </p>
+    <div class="row mb-5 mt-5">
+        <div class="col-md-12 mb-4">
+            <img src="@item.ImageUrl" style="height:300px" alt="Image placeholder" class="img-fluid rounded">
+        </div>
+    </div>
+</div>}
+

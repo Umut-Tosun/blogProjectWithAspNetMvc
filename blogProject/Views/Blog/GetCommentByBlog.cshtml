@@ -1,0 +1,100 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
+
+@{
+
+    ViewBag.Title = "GetCommentByBlog";
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Timelime example  -->
+                <div class="timeline">
+                    <div class="time-label">
+                        <span class="bg-cyan">@ViewBag.BlogName</span>
+                        <br />
+                        <br />
+                        <span class="bg-primary">Toplam @Model.Count() Yorum</span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <!-- The time line -->
+                        @foreach (var item in Model)
+                        {
+                            <div class="timeline">
+
+                                <!-- timeline time label -->
+
+                                <div class="time-label">
+
+                                    <span class="bg-red">@(((DateTime)item.DateTime).ToString("dd-MMM-yyyy"))</span>
+
+                                </div>
+
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+
+                                <div>
+
+                                    <i class="fas fa-comment bg-yellow"></i>
+
+                                    <div class="timeline-item">
+
+
+
+                                        <h3 class="timeline-header"><a href="#">@item.FirstName @item.LastName</a> @item.Mail</h3>
+
+                                        <div class="timeline-body">
+
+                                            @item.CommentText
+
+                                        </div>
+
+                                        <div class="timeline-footer">
+
+                                            <a class="btn btn-primary btn-sm">Onayla</a>
+
+                                            <a class="btn btn-danger btn-sm">Sil</a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- END timeline item -->
+
+                            </div>
+                        }
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+            </div>
+
+            <!-- /.timeline -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+    <!-- ./wrapper -->
+
+</body>
+
+</html>
+
+

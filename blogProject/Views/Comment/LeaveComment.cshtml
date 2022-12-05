@@ -1,0 +1,39 @@
+﻿<div class="comment-form-wrap pt-5">
+    <h3 class="mb-5">Bir yorum bırak</h3>
+    <form action="#" method="post" class="p-5 bg-light">
+        <input type="hidden" name="BlogID" value="@ViewBag.blogID" class="form-control">
+        <div class="form-group">
+            <label for="name">Ad *</label>
+            <input type="text" name="FirstName" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="name">Soyad *</label>
+            <input type="text" name="LastName" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Eposta</label>
+            <input type="email" name="Mail" class="form-control" id="email">
+        </div>
+
+        <div class="form-group">
+            <label for="message">Yorum *</label>
+            <textarea name="CommentText" id="message" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Puanınınız</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 1)1</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 2)2</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 3)3</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 4)4</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 5)5</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 6)6</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 7)7</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 8)8</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 9)9</label>
+            <label style="margin-left:10px">@Html.RadioButton("BlogRating", 10)10</label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Gönder" class="btn btn-primary">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,78 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1"> 
+                    <div class="row">
+                        <div class="col-12">
+
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h3 class="card-title">Kategori Ekleme Formu</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form method="post" class="form-horizontal">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori Adı</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" name="Name" id="inputEmail3" placeholder="Zorunlu alan lütfen giriniz...">
+                                                @Html.ValidationMessageFor(x=>x.Name, null, new { @class = "text-danger" })
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputPassword3" class="col-sm-2 col-form-label">Kategori Açıklaması</label>
+                                            <div class="col-sm-10">
+                                                <textarea rows="6" class="form-control" name="Description" placeholder="Zorunlu alan lütfen giriniz..."></textarea>
+                                                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
+                                            </div>
+                                          
+                                        </div>
+                                       
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-info">Kategori Ekle</button>
+                                        <a  class="btn btn-default float-right" href="/Category/CategoryList">Geri Dön</a>
+                                    </div>
+                                    <!-- /.card-footer -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                    <h3 class="text-primary"><i class="fas fa-paint-brush"></i>Kategori Ekleme Paneli</h3>
+                    <p class="text-muted">Projenin kategori ekle panelindesiniz bu alanda bloglar için yeni bir kategoriyi projeye dahil edebilirsiniz.</p>
+                    <br>
+                    <div class="text-muted">
+                        <p class="text-sm">
+                            Proje Hedef Kitle Bölüm
+                            <b class="d-block">Bilgisayar Programcılığı</b>
+                        </p>
+                        <p class="text-sm">
+                            Proje Yöneticisi
+                            <b class="d-block">Umut Tosun</b>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+

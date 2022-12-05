@@ -1,0 +1,115 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Comment>
+@{
+    ViewBag.Title = "AdminisReadTrueCommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                    <div class="row">
+
+                        <div class="info-box bg-cyan">
+                            <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Toplam Yorum Sayısı</span>
+                                <span class="info-box-number">@Model.Count()</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <div class="info-box bg-danger" style="margin-left:1%">
+                            <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">Onaylanan Yorum Sayısı</span>
+                                <span class="info-box-number">@Model.Where(x => x.isRead == true).Count()</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <div class="info-box bg-success" style="margin-left:1%">
+                            <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">En Fazla Yorum Alan Blog</span>
+                                <span class="info-box-number">Algoritma Nedir ?</span>
+
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 100%"></div>
+                                </div>
+
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Son Yorumlar</h4>
+                            @foreach (var item in Model)
+                            {
+                                <div class="post">
+                                    <div class="user-block">
+                                        <img class="img-circle img-bordered-sm" src="https://i.hizliresim.com/e1c55km.png" alt="user image">
+                                        <span class="username">
+                                            <a href="#">@item.FirstName @item.LastName</a>
+                                            ------------------
+                                            <a href="#" class="badge bg-fuchsia">@item.Blog.Title</a>
+                                        </span>
+
+                                        <span class="description">Paylaşım Tarihi -  @(((DateTime)item.DateTime).ToString("dd-MMM-yyyy"))</span>
+                                    </div>
+                                    <!-- /.user-block -->
+                                    <p>
+                                        @item.CommentText
+                                    </p>
+
+                                  
+
+
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                    <h3 class="text-primary"><i class="fas fa-paint-brush"></i>Yorumlar Paneli</h3>
+                    <p class="text-muted">Projenin yorumlar panelindesiniz yorumlara ait istatisikleri görüntülüyebilir zararlı,uygunsuz yorumları silebilirsiniz.</p>
+                    <br>
+                    <div class="text-muted">
+                        <p class="text-sm">
+                            Proje Hedef Kitle Bölüm
+                            <b class="d-block">Bilgisayar Programcılığı</b>
+                        </p>
+                        <p class="text-sm">
+                            Proje Yöneticisi
+                            <b class="d-block">Umut Tosun</b>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+
